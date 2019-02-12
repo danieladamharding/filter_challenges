@@ -42,12 +42,14 @@ challenges.findNamesStartingWith = function (arr, letter) {
   return arr.filter(function (string) {
     // const upperCaseLetter = letter.toUpperCase();
     // const capitalisedString = string.charAt(0).toUpperCase() + string.subString(1);
-    return (typeof string === 'string' && string.startsWith(letter));
+    return (typeof string === 'string' && string.substring(0, 1).toUpperCase() === letter.toUpperCase())
   });
 };
 
 challenges.findBobs = function (arr) {
-  
+  return arr.filter(function (string) {
+    return typeof string === 'string' && string.substring(0, 3) === 'bob' || typeof string === 'string' && string.substring(0, 3) === 'Bob';
+  })
 };
 
 module.exports = challenges;
